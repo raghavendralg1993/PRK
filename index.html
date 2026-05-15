@@ -14,10 +14,90 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link href="./index.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            /* Subtle texture background */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b4332' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
 
-    <script src="./tailwindConfig.js"></script>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
 
+        /* Custom Scrollbar for the horizontal list */
+        .hide-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Pulse animation for delivery tag */
+        @keyframes pulse-subtle {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-pulse-subtle {
+            animation: pulse-subtle 2s infinite;
+        }
+
+        /* Modal Transitions */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+        }
+
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+
+        .modal-exit {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-exit-active {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif '],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#1b4332',
+                            light: '#d8f3dc',
+                            accent: '#ffb703',
+                            brown: '#582f0e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
 <body class="text-gray-800 antialiased min-h-screen flex justify-center pb-20">
@@ -206,10 +286,10 @@
                         class="text-[10px] text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1 animate-pulse"><i
                             class="ph-bold ph-hand-swipe-left"></i> Swipe</span>
                 </div>
-            
+
                 <!-- Horizontal Scroll Container -->
                 <div class="flex overflow-x-auto hide-scroll gap-4 pb-4 snap-x snap-mandatory" id="whyChooseScroll">
-            
+
                     <!-- Card 1 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -219,7 +299,7 @@
                         <p class="text-white font-medium text-lg leading-snug">We do not serve food in plastic
                             containers.</p>
                     </div>
-            
+
                     <!-- Card 2 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -229,7 +309,7 @@
                         <p class="text-white font-medium text-lg leading-snug">No preservatives / artificial colors
                             are used.</p>
                     </div>
-            
+
                     <!-- Card 3 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -239,7 +319,7 @@
                         <p class="text-white font-medium text-lg leading-snug">No Readymade masalas - Everything
                             prepared in home.</p>
                     </div>
-            
+
                     <!-- Card 4 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -249,7 +329,7 @@
                         <p class="text-white font-medium text-lg leading-snug">We use only fresh vegetables. Sourced
                             daily from market.</p>
                     </div>
-            
+
                     <!-- Card 5 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -259,7 +339,7 @@
                         <p class="text-white font-medium text-lg leading-snug">Only vegetarian food is prepared in
                             our kitchen (No eggs included).</p>
                     </div>
-            
+
                     <!-- Card 6 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -269,7 +349,7 @@
                         <p class="text-white font-medium text-lg leading-snug">Daily pickup & drop service for food
                             boxes (Eco-Friendly delivery).</p>
                     </div>
-            
+
                     <!-- Card 7 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -279,7 +359,7 @@
                         <p class="text-white font-medium text-lg leading-snug">Every meal comes with a short story
                             to make your experience special.</p>
                     </div>
-            
+
                     <!-- Card 8 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -289,7 +369,7 @@
                         <p class="text-white font-medium text-lg leading-snug">Complimentary sprouts will be
                             provided for 2 days with every subscription.</p>
                     </div>
-            
+
                     <!-- Card 9 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -299,7 +379,7 @@
                         <p class="text-white font-medium text-lg leading-snug">Hygienic & home style cooking with
                             proper care & cleanliness.</p>
                     </div>
-            
+
                     <!-- Card 10 -->
                     <div
                         class="min-w-full snap-center bg-[#582f0e] rounded-2xl p-6 relative overflow-hidden shadow-md flex flex-col justify-center min-h-[160px]">
@@ -309,7 +389,7 @@
                         <p class="text-white font-medium text-lg leading-snug">Subscription pause option available
                             for up to 5 days [Please provide 2 days' notice].</p>
                     </div>
-            
+
                 </div>
             </div>
 
@@ -359,7 +439,7 @@
                 </div>
             </div>
 
-         
+
         </main>
 
         <!-- Footer / Contact Actions -->
@@ -417,23 +497,206 @@
 
     <!-- MODAL OVERLAY -->
     <div id="menuModal"
-    class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm transition-opacity">
-    <div
-        class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl transform transition-transform scale-100">
-        <div id="modalTitle" class="bg-brand-green text-white p-4 font-bold flex justify-between items-center">
-            <span class="font-serif">Title</span>
-            <button onclick="closeModal()"
-                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"><i
-                    class="ph-bold ph-x"></i></button>
-        </div>
-        <div id="modalBody" class="p-6 max-h-[60vh] overflow-y-auto">
-            <!-- Content injected here -->
+        class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl transform transition-transform scale-100">
+            <div id="modalTitle" class="bg-brand-green text-white p-4 font-bold flex justify-between items-center">
+                <span class="font-serif">Title</span>
+                <button onclick="closeModal()"
+                    class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"><i
+                        class="ph-bold ph-x"></i></button>
+            </div>
+            <div id="modalBody" class="p-6 max-h-[60vh] overflow-y-auto">
+                <!-- Content injected here -->
+            </div>
         </div>
     </div>
-</div>
+    <script>
+        // --- MODAL DATA & LOGIC ---
+            const menuData = {
+                'chapathi-rotti': {
+                    title: '<i class="ph-fill ph-bread"></i> Chapathi & Rotti ',
+                    content: `
+                    <div class="space-y-4">
+                        <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                            <h4 class="font-bold text-brand-green border-b border-green-100 pb-2 mb-2">Chapathi</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Plain Chapathi</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Menthya / Methi Chapathi</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                            <h4 class="font-bold text-brand-green border-b border-green-100 pb-2 mb-2">Rotti</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Jolada Rotti / Jowar Rotti</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Ragi Rotti</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Rice Rotti</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+                },
+                'palya-curries': {
+                    title: '<i class="ph-fill ph-bowl-food"></i> Palya / Curries',
+                    content: `
+                    <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Javalikayi / Cluster Beans Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Bendekayi / Ladyfinger Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Hesarkalu / Green Gram Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Dal Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Hirekayi Palya / Ridge Gourd Stir-fry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Mulgai Engai / Stuffed Eggplant Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Batani Palya / Green Peas Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Tomato Curry</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-leaf text-green-500"></i> Vegetable Curry</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-leaf text-green-500"></i> Paneer Curry</li>
+                        </ul>
+                    </div>
+                `
+                },
+                'sambar-rasam': {
+                    title: '<i class="ph-fill ph-cooking-pot"></i> Sambar & Rasam',
+                    content: `
+                    <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Tarkaari / Mixed Vegetables Sambar</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Nuggekayi / Drumstick Sambar</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Hurulikal Molke Kaal / Horse Gram Sambar</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Southekayi / Cucumber Sambar</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Molke Hesarkalu / Sprouted Mung Bean Sambar</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Hesarubele / Yellow Moong Dal Sambar</li>
+                            <li class="flex items-center gap-2 border-b border-gray-50 pb-2"><i class="ph-fill ph-drop text-orange-500"></i> Soppu Bele / Green Leefi Sambar</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-drop text-red-500"></i> Rasam</li>
+                        </ul>
+                    </div>
+                `
+                },
+                'rice-items': {
+                    title: '<i class="ph-fill ph-bowl-steam"></i> Rice & Sides',
+                    content: `
+                    <div class="space-y-4">
+                        <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                            <h4 class="font-bold text-brand-green border-b border-green-100 pb-2 mb-2">Rice Items</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-bowl-steam text-stone-500"></i> Plain White Rice</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-bowl-steam text-stone-500"></i> Jeera Rice</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-bowl-steam text-stone-500"></i> Ghee Rice</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-bowl-steam text-stone-500"></i> Palav</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-bowl-steam text-stone-500"></i> Fried Rice</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                            <h4 class="font-bold text-brand-green border-b border-green-100 pb-2 mb-2">Sides</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-carrot text-orange-500"></i> Salad</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-pepper text-red-500"></i> Uppinkayi (Pickle)</li>
+                                <li class="flex items-center gap-2"><i class="ph-fill ph-moon text-yellow-500"></i> Papad</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+                },
+                'sub-weekly-mini': {
+                    title: '<i class="ph-fill ph-calendar"></i> Weekly Plan Details',
+                    content: `
+                    <div class="bg-white p-4 rounded-xl shadow-lg border border-brand-green mb-4 text-center">
+                        <div class="text-3xl font-black text-brand-green mb-1">₹499</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase">Mon-Fri • 1 Time Meal</div>
+                        <div class="mt-2 text-xs text-white bg-green-500 px-2 py-1 rounded-full inline-block font-bold animate-pulse-subtle"><i class="ph-bold ph-moped"></i> Free Delivery < 5km</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                        <h4 class="font-bold text-gray-800 mb-2">What it includes daily:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> 2 Chapathis or Rotis</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Vegetable Curry</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Salad</li>
+                        </ul>
+                    </div>
+                `
+                },
+                'sub-weekly-full': {
+                    title: '<i class="ph-fill ph-calendar"></i> Weekly Plan Details',
+                    content: `
+                    <div class="bg-white p-4 rounded-xl shadow-lg border border-brand-green mb-4 text-center">
+                        <div class="text-3xl font-black text-brand-green mb-1">₹777</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase">Mon-Fri • 1 Time Meal</div>
+                        <div class="mt-2 text-xs text-white bg-green-500 px-2 py-1 rounded-full inline-block font-bold animate-pulse-subtle"><i class="ph-bold ph-moped"></i> Free Delivery < 5km</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                        <h4 class="font-bold text-gray-800 mb-2">What it includes daily:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> 2 Chapathis or Rotis</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Vegetable Curry</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> White Rice</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Sambar</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Salad</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Pickle</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Buttermilk</li>
+                        </ul>
+                    </div>
+                `
+                },
+                'sub-monthly-mini': {
+                    title: '<i class="ph-fill ph-calendar-star"></i> Monthly Plan Details',
+                    content: `
+                    <div class="bg-gradient-to-br from-brand-green to-[#2d6a4f] p-4 rounded-xl shadow-md border border-brand-green mb-4 text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-brand-accent text-brand-brown text-[10px] font-bold px-3 py-1 rounded-bl-lg">BEST VALUE</div>
+                        <div class="text-3xl font-black text-brand-accent mb-1">₹1800</div>
+                        <div class="text-xs font-bold text-brand-light uppercase">Mon-Fri • 1 Time Meal</div>
+                        <div class="mt-2 text-xs text-white border border-white/50 px-2 py-1 rounded-full inline-block font-bold animate-pulse-subtle"><i class="ph-bold ph-moped"></i> Free Delivery < 5km</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                        <h4 class="font-bold text-gray-800 mb-2">What it includes daily:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> 2 Chapathis or Rotis</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Vegetable Curry</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Salad</li>
+                        </ul>
+                    </div>
+                `
+                },
+                'sub-monthly-full': {
+                    title: '<i class="ph-fill ph-calendar-star"></i> Monthly Plan Details',
+                    content: `
+                    <div class="bg-gradient-to-br from-brand-green to-[#2d6a4f] p-4 rounded-xl shadow-md border border-brand-green mb-4 text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-brand-accent text-brand-brown text-[10px] font-bold px-3 py-1 rounded-bl-lg">BEST VALUE</div>
+                        <div class="text-3xl font-black text-brand-accent mb-1">₹2222</div>
+                        <div class="text-xs font-bold text-brand-light uppercase">Mon-Fri • 1 Time Meal</div>
+                        <div class="mt-2 text-xs text-white border border-white/50 px-2 py-1 rounded-full inline-block font-bold animate-pulse-subtle"><i class="ph-bold ph-moped"></i> Free Delivery < 5km</div>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                        <h4 class="font-bold text-gray-800 mb-2">What it includes daily:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> 2 Chapathis or Rotis</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Vegetable Curry</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> White Rice</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Sambar</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Salad</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Pickle</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i> Buttermilk</li>
+                        </ul>
+                    </div>
+                `
+                }
+            };
 
+            function openModal(key) {
+                const modal = document.getElementById('menuModal');
+                document.getElementById('modalTitle').children[0].innerHTML = menuData[key].title;
+                document.getElementById('modalBody').innerHTML = menuData[key].content;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal() {
+                document.getElementById('menuModal').classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        
+
+    </script>
     <!-- JavaScript logic -->
-    <script src="./model.js"></script>
+    <!-- <script src="./model.js"></script> -->
 
 </body>
 
