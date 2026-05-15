@@ -1,0 +1,62 @@
+body {
+    background-color: #f8f9fa;
+    /* Subtle texture background */
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b4332' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Custom Scrollbar for the horizontal list */
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Pulse animation for delivery tag */
+@keyframes pulse-subtle {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 2s infinite;
+}
+
+/* Modal Transitions */
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+}
+
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.modal-exit {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.modal-exit-active {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+    transition: opacity 300ms, transform 300ms;
+}
