@@ -1,7 +1,7 @@
 // --- MODAL DATA & LOGIC ---
 const menuData = {
     'chapathi-rotti': {
-        title: '<i class="ph-fill ph-bread"></i> Chapathi & Rotti',
+        title: '<i class="ph-fill ph-bread"></i> Chapathi & Rotti ',
         content: `
                     <div class="space-y-4">
                         <div class="bg-white p-3 rounded-xl shadow-lg border border-gray-100">
